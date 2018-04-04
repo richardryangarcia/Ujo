@@ -14,7 +14,7 @@ export class StoreSection extends React.Component {
      console.log("Store Page Mounted");
      checkForWeb3();
      checkMetaMask();
-     getPriceInUsd();
+     getPriceInUsd(connect);
 
   }
 

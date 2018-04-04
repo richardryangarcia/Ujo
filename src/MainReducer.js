@@ -6,7 +6,7 @@ const MainReducer = (state = fromJS({}), action) => {
       console.log("hello");
       return state.set("priceInUsd", null);
     case 'GOT_PRICE_IN_USD':
-    console.log("hello");
+    console.log("got price");
       return state.set("priceInUsd", action.priceInETHString);
     case 'WEB3_FOUND':
       return state.setIn(['web3','hasWeb3'], true);

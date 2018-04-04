@@ -5,6 +5,7 @@ import Truffle from 'truffle-contract';
 let oracle;
 
 const initializeContract = () => {
+  console.log("initalizing contracts");
   oracle = Truffle(OracleContracts.USDETHOracle);
   oracle.setProvider(web3.currentProvider);
 };
@@ -63,9 +64,9 @@ export const checkMetaMask = () => {
 
 
 // spoofed web3 call for the price
-export const getPriceInUsd = () => async dispatch =>  {
+export const getPriceInUsd = async (dispatch) =>  {
 
-  console.log('in get usd price ');
+  //console.log('in get usd price ');
 
   initializeContract();
 
@@ -83,7 +84,7 @@ export const getPriceInUsd = () => async dispatch =>  {
       priceInETHString: result
     }
 
-    console.log(action);
+    //console.log(action);
 
     dispatch(action);
   });

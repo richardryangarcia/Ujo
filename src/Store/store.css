@@ -1,0 +1,111 @@
+body {
+  font-family: 'Montserrat', sans-serif; }
+
+.store-section {
+  min-height: 100vh;
+  width: 100vw;
+  background: #f7f7f7;
+  background-size: cover;
+  background-position: 30% 40%;
+  padding-top: 80px;
+  padding-bottom: 80px; }
+  .store-section .store-overlay {
+    opacity: 0.98;
+    background: #ffffff;
+    box-shadow: 0 3px 23px 0 rgba(0, 0, 0, 0.07);
+    border-radius: 8px;
+    padding: 30px;
+    margin-bottom: 40px;
+    min-height: 480px; }
+  .store-section .artist-image {
+    background: url("../assets/from-above.jpeg");
+    height: 140px;
+    width: 140px;
+    background-size: cover;
+    border-radius: 8px; }
+  .store-section h4 {
+    font-size: 1.25rem;
+    color: #343434;
+    margin: 30px;
+    letter-spacing: 1px; }
+  .store-section h5 {
+    font-size: 1rem;
+    margin-bottom: 20px; }
+  .store-section p {
+    font-size: 0.75rem;
+    color: #6A6A6A; }
+  .store-section .album-section .album-art {
+    background: url("../assets/blog-payments.png");
+    background-position: center;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 30px; }
+  .store-section .album-section h3 {
+    font-size: 1.25rem;
+    color: #343434;
+    letter-spacing: 1px; }
+  .store-section .album-section p {
+    color: #474747;
+    font-size: 0.875rem; }
+  .store-section .album-section .feature {
+    color: #343434;
+    font-size: 0.75rem;
+    letter-spacing: 1px; }
+    .store-section .album-section .feature .descriptor {
+      color: #737373; }
+  .store-section .album-section .play-status-container {
+    display: inline-block;
+    float: right;
+    margin-top: 10px;
+    color: #FFFFFF;
+    border-radius: 50%;
+    background-size: 200% auto;
+    transition: .3s ease-in-out;
+    text-align: center;
+    height: 50px;
+    width: 50px; }
+    .store-section .album-section .play-status-container:hover {
+      background-position: right center; }
+    .store-section .album-section .play-status-container span {
+      font-size: 20px;
+      margin-top: 15px;
+      display: inline-block;
+      margin-left: 2px; }
+  .store-section .album-section .disclaimer-text {
+    font-size: 0.75rem;
+    color: #8D8D8D;
+    font-style: italic; }
+  .store-section .buy-album-container {
+    margin-top: 40px;
+    position: relative; }
+  .store-section .tracks-section {
+    margin-top: 20px;
+    overflow-y: scroll;
+    overflow-x: hidden; }
+    .store-section .tracks-section .track-container {
+      font-size: 14px;
+      font-size: 0.75rem;
+      color: #343434; }
+      .store-section .tracks-section .track-container .track-header {
+        padding-bottom: 5px; }
+        .store-section .tracks-section .track-container .track-header:hover {
+          cursor: pointer; }
+      .store-section .tracks-section .track-container .track-title {
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; }
+      .store-section .tracks-section .track-container .track-index, .store-section .tracks-section .track-container .track-title, .store-section .tracks-section .track-container .track-duration, .store-section .tracks-section .track-container .play-button {
+        display: inline-block; }
+      .store-section .tracks-section .track-container .track-index {
+        padding-right: 5px; }
+      .store-section .tracks-section .track-container .status-button {
+        display: inline-block;
+        float: right; }
+      .store-section .tracks-section .track-container .track-credits-container {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height .3s ease-in-out; }
+        .store-section .tracks-section .track-container .track-credits-container.playing {
+          max-height: 200px;
+          padding-bottom: 5px; }

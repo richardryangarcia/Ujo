@@ -1,0 +1,97 @@
+.modal-background {
+	z-index: 500;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	background:rgba(#ffffff,0.90);
+	overflow: hidden;
+	opacity: 0;
+	height: 0vh;
+	transition: all 1s ease-in-out;
+
+		&.open {
+			opacity: 1;
+			height: 100vh;
+		}
+
+
+	.modal-container {
+		opacity:0.98;
+		background: #ffffff;
+		box-shadow: 0 3px 23px 0 rgba(0,0,0,0.07);
+		border-radius:8px;
+		margin: 0 auto;
+		padding: 40px;
+		font-size: 0.75rem;
+		color: #525252;
+		min-height: 50vh;
+		animation: modaSlideDown 1s normal forwards ease-in-out;
+		width: 70vw;
+		max-width: 500px;
+		position: relative;
+
+		.exit-modal {
+			position: relative;
+			top: -16px;
+			right: -16px;
+			height: 16px;
+			width: 16px;
+			background: url('../assets/x-modal.png');
+			float: right;
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
+
+		.modal-title{
+			font-size: 1.125rem;
+			color: #7d0162;
+			text-align:center;
+			margin-bottom: 20px;
+		}
+
+		.warning-text {
+			margin-top: 10vh;
+
+			p {
+				margin-bottom: 0rem;
+			}
+		}
+
+    .success-text {
+      margin-top: 10vh;
+
+      p {
+        margin-bottom: 0rem;
+      }
+    }
+
+    .token-badge {
+    	max-width: 50px;
+    }
+
+		button {
+			margin: 30px auto 15px;
+		}
+
+   }
+
+   .modal-content-container {
+	   	height: 60vh;
+	   	overflow-y: scroll;
+	   	color: #111;
+   }
+
+}
+
+@keyframes modaSlideDown{
+  from {
+    top: -150vh;
+  }
+  to {
+    top: 15vh;
+  }
+}

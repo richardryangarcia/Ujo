@@ -5,15 +5,11 @@ import Truffle from 'truffle-contract';
 let oracle;
 
 const initializeContract = () => {
-  console.log("in initalize contract");
   oracle = Truffle(OracleContracts.USDETHOracle);
   oracle.setProvider(web3.currentProvider);
-  console.log(oracle);
 };
 
 export const checkForWeb3 = () => {
-  console.log("in price get")
-  console.log(initializeContract());
   //console.log("checking for web 3");
   let action;
   if (typeof web3 !== 'undefined') {
@@ -49,7 +45,7 @@ export const checkMetaMask = () => {
   // console.log(web3.version.network);
   if (web3.version.network > 0 ){
     networkTrueOrFalse = true
-    //console.log("has network");
+    console.log("has network " + web3.version.network);
   } else {
     networkTrueOrFalse = false
   }
@@ -65,18 +61,31 @@ export const checkMetaMask = () => {
   return action;
 };
 
-// spoofed web3 call for the price
-export const getPriceInUsd = () => async dispatch => {
 
+// spoofed web3 call for the price
+export const getPriceInUsd = () => async dispatch =>  {
+
+  console.log('in get usd price ');
+
+  initializeContract();
 
   dispatch({
-    type: 'GETTING_PRICE_IN_USD',
-    priceInETHString: 'null',
+    type: 'GETTING_PRICE_IN_USD'
   });
-  setTimeout(async () => {
-    dispatch({
+
+  oracle.deployed().then(function(instance) {
+      let contractamundo = instance;
+      return contractamundo.getPrice();
+  }).then(function(result) {
+    //success
+    let action = {
       type: 'GOT_PRICE_IN_USD',
-      priceInETHString: '10',
-    });
-  }, 8000);
+      priceInETHString: result
+    }
+
+    console.log(action);
+
+    dispatch(action);
+  });
+
 };

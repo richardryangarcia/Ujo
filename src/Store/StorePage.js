@@ -11,12 +11,13 @@ import './store.css';
 export class StoreSection extends React.Component {
 
   componentDidMount() {
-    console.log("Store Page Mounted");
+     console.log("Store Page Mounted");
      checkForWeb3();
      checkMetaMask();
      getPriceInUsd();
 
   }
+
 
   render() {
     return (

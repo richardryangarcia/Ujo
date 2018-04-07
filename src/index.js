@@ -14,7 +14,7 @@ const initialState = fromJS({
   priceInUsd: 395.55000,
   web3: {
     validNetwork: false,
-    metamaskUnlocked: true,
+    metamaskUnlocked: false,
     isMobile: (typeof window.orientation !== 'undefined' || navigator.userAgent.indexOf('IEMobile') !== -1),
     isChrome: (navigator.userAgent.indexOf('Chrome') > -1),
     hasWeb3: false,

@@ -1,7 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {getPriceInUsd, checkForWeb3, checkMetaMask} from '../Web3/actions';
-
 
 export class InformativeText extends React.Component {
 
@@ -19,7 +17,7 @@ export class InformativeText extends React.Component {
 
     return (
       <div>
-        {infoText.length == 0 ? <div></div> : <div className="alert alert-warning"><pre>{infoText}</pre></div>}
+        {infoText.length === 0 ? <div></div> : <div className="alert alert-warning"><pre>{infoText}</pre></div>}
       </div>
     )
   }

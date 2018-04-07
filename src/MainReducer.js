@@ -10,9 +10,10 @@ const MainReducer = (state = fromJS({}), action) => {
       return state.setIn(['web3','hasWeb3'], true);
     case 'WEB3_NOT_FOUND':
       return state.setIn(['web3','hasWeb3'], false);
-    case 'METAMASK_CHECK':
+    case 'NETWORK_CHECK':
       return state.setIn(['web3', 'validNetwork'], action.validNetwork)
-                  .setIn(['web3', 'metamaskUnlocked'], action.metamaskUnlocked);
+    case 'METAMASK_CHECK':
+      return state.setIn(['web3', 'metamaskUnlocked'], action.metamaskUnlocked);
     case 'OPEN_MODAL':
       return state.setIn(['modal', 'open'], true)
                   .setIn(['modal', 'message'], action.message);

@@ -11,10 +11,16 @@ import './store.css';
 export class StoreSection extends React.Component {
 
   componentDidMount() {
+     this.props.actions.checkForValidNetwork();
      this.props.actions.checkForWeb3();
      this.props.actions.checkMetaMask();
-     this.props.actions.checkForValidNetwork();
-     // this.props.actions.getPriceInUsd(connect);
+     console.log(" this is " + this.props.web3.get('validNetwork'));
+     if (this.props.web3.get('validNetwork')){
+       console.log('get eth price');
+       this.props.actions.getPriceInUsd();
+     } else {
+       console.log("do not get eth price");
+     }
   }
 
   render() {
@@ -40,7 +46,8 @@ export class StoreSection extends React.Component {
 
 function mapStateToProps(state, props) {
   return {
-    modal: state.get('modal')
+    modal: state.get('modal'),
+    web3: state.get('web3')
   };
 };
 

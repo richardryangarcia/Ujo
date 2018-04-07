@@ -13,8 +13,6 @@ export class InformativeText extends React.Component {
       infoText = "MetaMask is required to purchase this album on Ethereum."
     }
 
-
-
     return (
       <div>
         {infoText.length === 0 ? <div></div> : <div className="alert alert-warning"><pre>{infoText}</pre></div>}

@@ -11,7 +11,7 @@ import thunk from 'redux-thunk';
 import { fromJS } from 'immutable';
 
 const initialState = fromJS({
-  priceInUsd: 395.55000,
+  priceInUsd: null,
   web3: {
     validNetwork: false,
     metamaskUnlocked: false,

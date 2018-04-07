@@ -11,7 +11,7 @@ export default class Modal extends React.Component {
         {this.props.displayModal
           ? (<div className="modal-container">
             <div className="exit-modal" role="button" tabIndex="-1" onClick={() => this.props.closeModal()} />
-            <div className="modal-title">Warning</div>
+            {this.props.message === 'all good' ? <div className="modal-title">Success!</div> : <div className="modal-title">Warning</div>}
             <div className="text-center warning-text">
               {this.props.message.split('\n').map((w, i) => <p key={i}>{w}</p>)}
             </div>

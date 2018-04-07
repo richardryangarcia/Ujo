@@ -16,7 +16,7 @@ export class BuyButton extends React.Component {
       infoText = "You need to be signed into your MetaMask account and be connected the correct ethereum network to buy the album. Please connect to the Main Network. Using Metamask, you can switch networks by clicking the MetaMask extension icon in your browser and then clicking the network name in the top left corner."
     } else {
       buttonText = "Buy Album"
-      infoText = "all gucci"
+      infoText = "all good"
     }
 
     return (

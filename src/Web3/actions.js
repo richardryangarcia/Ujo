@@ -5,7 +5,6 @@ import Truffle from 'truffle-contract';
 let oracle;
 
 const initializeContract = () => {
-  console.log("initalizing contracts");
   oracle = Truffle(OracleContracts.USDETHOracle);
   oracle.setProvider(web3.currentProvider);
 };
@@ -18,8 +17,10 @@ export const checkForWeb3 = () => {
 
 //update state to true if on rinkeby network
 export const checkForValidNetwork = () => {
-  let networkTrueOrFalse = web3.version.network === '4' ? true : false;
-
+  console.log("checking for valid network");
+  console.log(web3.version.network);
+  let networkTrueOrFalse = web3.version.network == 4 ? true : false;
+  console.log(networkTrueOrFalse);
   let action = {
     type: 'NETWORK_CHECK',
     validNetwork: networkTrueOrFalse
@@ -39,25 +40,25 @@ export const checkMetaMask = () => {
   return action;
 };
 
-export const getPriceInUsd = async (dispatch) =>  {
+export const getPriceInUsd = () => {
 
   initializeContract();
 
-  dispatch({
-    type: 'GETTING_PRICE_IN_USD'
-  });
+  return async(dispatch) => {
+    dispatch({
+      type: 'GETTING_PRICE_IN_USD'
+    });
+    oracle.deployed().then((instance) => {
+        let contractamundo = instance;
+        return contractamundo.getPrice();
+    }).then((result) => {
+      //success
+      let action = {
+        type: 'GOT_PRICE_IN_USD',
+        priceInETHString: result
+      }
 
-  oracle.deployed().then(function(instance) {
-      let contractamundo = instance;
-      return contractamundo.getPrice();
-  }).then(function(result) {
-    //success
-    let action = {
-      type: 'GOT_PRICE_IN_USD',
-      priceInETHString: result
-    }
-
-    dispatch(action);
-  });
-
-};
+      dispatch(action);
+    });
+  }
+}

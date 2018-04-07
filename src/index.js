@@ -11,17 +11,17 @@ import thunk from 'redux-thunk';
 import { fromJS } from 'immutable';
 
 const initialState = fromJS({
-  priceInUsd: 'open MetaMask for ',
+  priceInUsd: 395.55000,
   web3: {
     validNetwork: false,
-    metamaskUnlocked: false,
+    metamaskUnlocked: true,
     isMobile: (typeof window.orientation !== 'undefined' || navigator.userAgent.indexOf('IEMobile') !== -1),
     isChrome: (navigator.userAgent.indexOf('Chrome') > -1),
     hasWeb3: false,
   },
   modal: {
     open: false,
-    message: null,
+    message: '',
   },
 });
 

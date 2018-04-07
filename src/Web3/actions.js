@@ -28,7 +28,7 @@ export const checkForWeb3 = () => {
 };
 
 export const checkMetaMask = () => {
-  // console.log("checking for metamask and valid network");
+  console.log("checking for metamask and valid network");
 
   let networkTrueOrFalse;
   let metamaskTrueOrFalse;

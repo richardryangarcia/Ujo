@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import ModalComponent from '../Modal/Modal';
 import ArtistSection from './ArtistSection';
 import AlbumSection from './AlbumSection';
-import { closeModal } from '../Modal/modalActions';
+import {  closeModal } from '../Modal/modalActions';
 import {getPriceInUsd, checkForWeb3, checkMetaMask} from '../Web3/actions';
 
 import './store.css';
@@ -11,8 +11,8 @@ import './store.css';
 export class StoreSection extends React.Component {
 
   componentDidMount() {
-     console.log("Store Page Mounted");
-     checkForWeb3();
+     //console.log("Store Page Mounted");
+     // checkForWeb3();
      checkMetaMask();
      getPriceInUsd(connect);
 

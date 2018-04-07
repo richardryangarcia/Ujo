@@ -14,14 +14,10 @@ export class TxSection extends React.Component {
 
   buyAlbum() { alert('Buying Album'); }
 
+
   render() {
     return (
       <div>
-        {/*
-          CODE GOES HERE
-          Note: make sure that you are only requesting
-          price when connected to the proper network
-        */}
         <InformativeText />
         <BuyButton />
       </div>

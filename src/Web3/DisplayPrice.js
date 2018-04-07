@@ -9,8 +9,17 @@ export class DisplayPrice extends React.Component {
   }
 
   render() {
-    const priceNumeric = this.isNumeric(this.props.priceInEth);
-    const displayPrice = priceNumeric ? Number(this.props.priceInEth).toFixed(5) : this.props.priceInEth;
+    const album_price = 10 //this would be a variable defined by artists for each song or album
+    const priceNumeric = this.isNumeric(this.props.priceInUsd);
+    let displayPrice;
+    if (priceNumeric){
+      let priceInEth = (album_price / this.props.priceInUsd)
+      displayPrice = Number(priceInEth).toFixed(5);
+    }
+    else {
+      displayPrice = this.props.priceInUsd;
+    }
+
     return (
       <div className="info-price">{displayPrice} ETH <span className="usd">(10 USD)</span></div>
     );
@@ -20,7 +29,7 @@ export class DisplayPrice extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    priceInEth: state.get('priceInEth'),
+    priceInUsd: state.get('priceInUsd')
   };
 }
 

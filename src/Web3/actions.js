@@ -17,10 +17,10 @@ export const checkForWeb3 = () => {
 
 //update state to true if on rinkeby network
 export const checkForValidNetwork = () => {
-  console.log("checking for valid network");
-  console.log(web3.version.network);
-  let networkTrueOrFalse = web3.version.network == 4 ? true : false;
-  console.log(networkTrueOrFalse);
+  let networkTrueOrFalse = false
+  if (typeof web3 !== 'undefined' && web3.version.network === '4') {
+      networkTrueOrFalse = true;
+  }
   let action = {
     type: 'NETWORK_CHECK',
     validNetwork: networkTrueOrFalse
@@ -30,7 +30,10 @@ export const checkForValidNetwork = () => {
 }
 
 export const checkMetaMask = () => {
-  let metamaskTrueOrFalse = web3.eth.accounts.length > 0  ? true : false;
+  let metamaskTrueOrFalse = false
+  if (typeof web3 !== 'undefined' && web3.eth.accounts.length > 0){
+    metamaskTrueOrFalse = true;
+  }
 
   let action = {
     type: 'METAMASK_CHECK',

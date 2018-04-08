@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import ModalComponent from '../Modal/Modal';
 import ArtistSection from './ArtistSection';
 import AlbumSection from './AlbumSection';
-import { closeModal } from '../Modal/modalActions';
+import { displayModal, closeModal } from '../Modal/modalActions';
 import {getPriceInUsd, checkForWeb3, checkMetaMask, checkForValidNetwork} from '../Web3/actions';
 import { bindActionCreators } from 'redux';
 import './store.css';
@@ -11,22 +11,21 @@ import './store.css';
 export class StoreSection extends React.Component {
 
   componentDidMount() {
-     this.props.actions.checkForValidNetwork();
      this.props.actions.checkForWeb3();
+     this.props.actions.checkForValidNetwork();
      this.props.actions.checkMetaMask();
   }
 
   componentDidUpdate(){
+    //this.props.actions.displayModal('hello');
     if (this.props.web3.get('validNetwork') && this.props.priceInUsd === null){
       this.props.actions.getPriceInUsd();
     }
   }
 
   render() {
-    console.log("rendered");
     return (
       <div>
-        <div>{this.props.web3.get('validNetwork') ? 'yes' : 'no'}</div>
         <ModalComponent
           displayModal={this.props.modal.get('open')}
           message={this.props.modal.get('message')}
@@ -54,7 +53,7 @@ function mapStateToProps(state, props) {
 };
 
 function mapDispatchToProps(dispatch) {
-  return { actions: bindActionCreators({getPriceInUsd, checkForWeb3, checkMetaMask,closeModal, checkForValidNetwork}, dispatch) }
+  return { actions: bindActionCreators({getPriceInUsd, checkForWeb3, checkMetaMask,closeModal,displayModal, checkForValidNetwork}, dispatch) }
 }
 
 export default connect(

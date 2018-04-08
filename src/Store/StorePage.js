@@ -14,18 +14,19 @@ export class StoreSection extends React.Component {
      this.props.actions.checkForValidNetwork();
      this.props.actions.checkForWeb3();
      this.props.actions.checkMetaMask();
-     console.log(" this is " + this.props.web3.get('validNetwork'));
-     if (this.props.web3.get('validNetwork')){
-       console.log('get eth price');
-       this.props.actions.getPriceInUsd();
-     } else {
-       console.log("do not get eth price");
-     }
+  }
+
+  componentDidUpdate(){
+    if (this.props.web3.get('validNetwork') && this.props.priceInUsd === null){
+      this.props.actions.getPriceInUsd();
+    }
   }
 
   render() {
+    console.log("rendered");
     return (
       <div>
+        <div>{this.props.web3.get('validNetwork') ? 'yes' : 'no'}</div>
         <ModalComponent
           displayModal={this.props.modal.get('open')}
           message={this.props.modal.get('message')}
@@ -47,7 +48,8 @@ export class StoreSection extends React.Component {
 function mapStateToProps(state, props) {
   return {
     modal: state.get('modal'),
-    web3: state.get('web3')
+    web3: state.get('web3'),
+    priceInUsd: state.get('priceInUsd')
   };
 };
 

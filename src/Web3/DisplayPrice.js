@@ -21,7 +21,7 @@ export class DisplayPrice extends React.Component {
     }
 
     return (
-      <div className="info-price">{displayPrice} ETH <span className="usd">(10 USD)</span></div>
+      <div id="price" className="info-price">{displayPrice} ETH <span className="usd">(10 USD)</span></div>
     );
   }
 }
